@@ -9,7 +9,7 @@ spring:
 
 #  configuracao do banco
   datasource:
-    url: jdbc:postgresql://localhost:5432/ead-authuser
+    url: jdbc:postgresql://localhost:5432/ead-authuser-async
     username: postgres
     password: 1234567
 
