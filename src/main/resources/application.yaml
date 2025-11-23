@@ -1,0 +1,45 @@
+server:
+  port: 8087
+  servlet:
+    context-path: '/ead-authuser/'  # path da rota do gateway
+
+spring:
+  application:
+    name: ead-authuser-service
+
+#  configuracao do banco
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ead-authuser
+    username: postgres
+    password: 1234567
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # cria as tabelas automaticamente no banco
+      dialect: org.hibernate.dialect.PostgreSQLDialect  # dialeto do postgres
+      jdbc:
+        lob.non-contextual-creation: true # evita logs de erro (devido consultas do hibernate a metadados do banco)
+    properties:
+      hibernate:
+        show_sql: true # mostra as consultas no log
+
+# niveis de log
+logging:
+  level:
+    com.ead: TRACE
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate: INFO
+
+ead:
+  api:
+    url:
+      course: 'http://ead-course-service/ead-course' # nome do servico de course e o seu context path
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://localhost:8761/eureka' # endereco onde o eureka esta disponivel
+
+  instance:
+    hostname: localhost # para se registrar utilizando host
