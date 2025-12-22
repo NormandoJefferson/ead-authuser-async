@@ -11,7 +11,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/ead-authuser-async
     username: postgres
-    password: 1234567
+    password: 12345
 
   jpa:
     hibernate:
