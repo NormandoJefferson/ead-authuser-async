@@ -23,6 +23,9 @@ spring:
       hibernate:
         show_sql: true # mostra as consultas no log
 
+  rabbitmq:
+    addresses: amqps://jgsmgoyt:B2MgZ72W7S3HQlXeN0DnSDj3dIPAWokP@moose.rmq.cloudamqp.com/jgsmgoyt # url do cloudamqp
+
 # niveis de log
 logging:
   level:
