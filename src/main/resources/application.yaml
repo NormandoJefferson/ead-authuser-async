@@ -39,6 +39,10 @@ ead:
     url:
       course: 'http://ead-course-service/ead-course' # nome do servico de course e o seu context path
 
+  broker:
+    exchange:
+      userEvent: ead.userevent # exchange para onde serao enviados os eventos
+
 eureka:
   client:
     serviceUrl:
