@@ -17,7 +17,7 @@ public class RabbitmqConfig {
     @Autowired
     CachingConnectionFactory cachingConnectionFactory;
 
-    @Value(value = "ead.broker.exchange.userEvent")
+    @Value(value = "${ead.broker.exchange.userEvent}")
     private String exchangeUserEvent;
 
     @Bean
