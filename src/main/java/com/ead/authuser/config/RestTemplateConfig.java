@@ -1,4 +1,4 @@
-package com.ead.authuser.clients;
+package com.ead.authuser.config;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
