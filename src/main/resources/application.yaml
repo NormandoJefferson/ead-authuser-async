@@ -1,67 +1,67 @@
-server:
-  port: 8087
-  servlet:
-    context-path: '/ead-authuser/'  # path da rota do gateway
+#server:
+#  port: 8087
+#  servlet:
+#    context-path: '/ead-authuser/'  # path da rota do gateway
 
 spring:
   application:
     name: ead-authuser-service
   config:
-    import: 'optional:configserver:' # usa o configserver e se ele nao estiver disponivel usa as configs locais
+    import: 'configserver:' # se usarmos optional:configserver: usará o config locais se o configserver estiver indisponivel
   cloud:
     config:
       discovery:
         serviceId: ead-config-server
-  datasource:
-    url: jdbc:postgresql://localhost:5432/ead-authuser-async
-    username: postgres
-    password: 12345
-  jpa:
-    hibernate:
-      ddl-auto: update  # cria as tabelas automaticamente no banco
-      dialect: org.hibernate.dialect.PostgreSQLDialect  # dialeto do postgres
-      jdbc:
-        lob.non-contextual-creation: true # evita logs de erro (devido consultas do hibernate a metadados do banco)
-    properties:
-      hibernate:
-        show_sql: true # mostra as consultas no log
-  rabbitmq:
-    addresses: amqps://jgsmgoyt:B2MgZ72W7S3HQlXeN0DnSDj3dIPAWokP@moose.rmq.cloudamqp.com/jgsmgoyt
-
-logging:
-  level:
-    com.ead: TRACE
-    root: INFO
-    org.springframework.web: DEBUG
-    org.hibernate: INFO
-
-ead:
-  api:
-    url:
-      course: 'http://ead-course-service/ead-course' # nome do servico de course e o seu context path
-  broker:
-    exchange:
-      userEvent: ead.userevent
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: 'http://localhost:8761/eureka' # endereco onde o eureka esta disponivel
-  instance:
-    hostname: localhost # para se registrar utilizando host
-
-resilience4j:
-  circuitbreaker:
-    instances:
-      circuitbreakerInstance:
-        slidingWindowSize: 30
-        permittedNumberOfCallsInHalfOpenState: 2
-        slidingWindowType: TIME_BASED
-        minimumNumberOfCalls: 2
-        waitDurationInOpenState: 30s
-        failureRateThreshold: 80
-  retry:
-    instances:
-      retryInstance:
-        maxRetryAttempts: 3 # limite maximo de tentativas
-        waitDuration: 5s  # espera entre uma tentativa e outra
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/ead-authuser-async
+#    username: postgres
+#    password: 12345
+#  jpa:
+#    hibernate:
+#      ddl-auto: update  # cria as tabelas automaticamente no banco
+#      dialect: org.hibernate.dialect.PostgreSQLDialect  # dialeto do postgres
+#      jdbc:
+#        lob.non-contextual-creation: true # evita logs de erro (devido consultas do hibernate a metadados do banco)
+#    properties:
+#      hibernate:
+#        show_sql: true # mostra as consultas no log
+#  rabbitmq:
+#    addresses: amqps://jgsmgoyt:B2MgZ72W7S3HQlXeN0DnSDj3dIPAWokP@moose.rmq.cloudamqp.com/jgsmgoyt
+#
+#logging:
+#  level:
+#    com.ead: TRACE
+#    root: INFO
+#    org.springframework.web: DEBUG
+#    org.hibernate: INFO
+#
+#ead:
+#  api:
+#    url:
+#      course: 'http://ead-course-service/ead-course' # nome do servico de course e o seu context path
+#  broker:
+#    exchange:
+#      userEvent: ead.userevent
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: 'http://localhost:8761/eureka' # endereco onde o eureka esta disponivel
+#  instance:
+#    hostname: localhost # para se registrar utilizando host
+#
+#resilience4j:
+#  circuitbreaker:
+#    instances:
+#      circuitbreakerInstance:
+#        slidingWindowSize: 30
+#        permittedNumberOfCallsInHalfOpenState: 2
+#        slidingWindowType: TIME_BASED
+#        minimumNumberOfCalls: 2
+#        waitDurationInOpenState: 30s
+#        failureRateThreshold: 80
+#  retry:
+#    instances:
+#      retryInstance:
+#        maxRetryAttempts: 3 # limite maximo de tentativas
+#        waitDuration: 5s  # espera entre uma tentativa e outra
