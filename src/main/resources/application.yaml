@@ -6,6 +6,12 @@ server:
 spring:
   application:
     name: ead-authuser-service
+  config:
+    import: 'optional:configserver:' # usa o configserver e se ele nao estiver disponivel usa as configs locais
+  cloud:
+    config:
+      discovery:
+        serviceId: ead-config-server
   datasource:
     url: jdbc:postgresql://localhost:5432/ead-authuser-async
     username: postgres
