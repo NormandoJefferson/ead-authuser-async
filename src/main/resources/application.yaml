@@ -7,7 +7,7 @@ spring:
   application:
     name: ead-authuser-service
   config:
-    import: 'configserver:' # se usarmos optional:configserver: usará o config locais se o configserver estiver indisponivel
+    import: 'configserver:' # se usarmos optional:configserver: usara o config locais se o configserver estiver indisponivel
   cloud:
     config:
       discovery:
