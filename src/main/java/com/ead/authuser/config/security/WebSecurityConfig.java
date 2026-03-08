@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     // Endpoints que podem ser acessados sem autenticação
     private static final String[] AUTH_WHITELIST = {
-            "/ead-authuser/auth/**"
+            "/auth/**"
     };
 
     @Override
