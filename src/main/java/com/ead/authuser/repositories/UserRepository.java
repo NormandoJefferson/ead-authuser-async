@@ -17,4 +17,6 @@ public interface UserRepository extends JpaRepository<UserModel, UUID>, JpaSpeci
     @EntityGraph(attributePaths = "roles", type = EntityGraph.EntityGraphType.FETCH) // Nessa consulta será retornada a coleção de roles mesmo estando como LAZY na entidade
     Optional<UserModel> findByUsername(String username);
 
+    @EntityGraph(attributePaths = "roles", type = EntityGraph.EntityGraphType.FETCH)
+    Optional<UserModel> findById(UUID userId);
 }
